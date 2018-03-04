@@ -1,4 +1,6 @@
 import * as express from 'express';
+import { create, findAll } from '../controller/event';
+import { IEvent } from '../model/EventModel';
 
 /**
  * Rest endpoints
@@ -7,10 +9,18 @@ import * as express from 'express';
 const router: express.Router = express.Router();
 
 router.get('/event', (req: express.Request, res: express.Response): void => {
-    res.json({
-        data: [],
-        message: 'get all events',
-        status: 200
+    findAll().then((events: IEvent[]): void => {
+        res.json({
+            data: events,
+            message: 'get all events',
+            status: 200
+        });
+    }).catch((err: any): void => {
+        res.json({
+            data: [],
+            message: err,
+            status: 500
+        });
     });
 });
 
@@ -23,10 +33,18 @@ router.get('/event/:id', (req: express.Request, res: express.Response): void => 
 });
 
 router.post('/event', (req: express.Request, res: express.Response): void => {
-    res.json({
-        data: [],
-        message: 'create new event',
-        status: 200
+    create().then((event: IEvent): void => {
+        res.json({
+            data: event,
+            message: 'create new event',
+            status: 200
+        });
+    }).catch((err: any): void => {
+        res.json({
+            data: [],
+            message: err,
+            status: 500
+        });
     });
 });
 
