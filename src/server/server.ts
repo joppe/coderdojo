@@ -1,9 +1,10 @@
 import * as bodyParser from 'body-parser';
 import * as express from 'express';
 import * as http from 'http';
+import * as morgan from 'morgan';
 import * as path from 'path';
-import { connect } from  './db';
-import { router as restRoutes } from './routes/rest';
+import { connect } from './db';
+import { router as restRoutes } from './routes/event.routes';
 
 /**
  * Server
@@ -15,11 +16,18 @@ connect({
 }).then((): void => {
     const app: express.Application = express();
 
+    app.use(morgan('dev'));
+
     // Parsers
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({
         extended: false
     }));
+
+    app.use(bodyParser.urlencoded({
+        extended: true
+    }));
+    app.use(bodyParser.json());
 
     // frontend code folder
     app.use(express.static(path.join(__dirname, 'dist/client')));
@@ -38,6 +46,7 @@ connect({
     app.set('port', port);
 
     const server: http.Server = http.createServer(app);
+
     server.listen(port, (): void => {
         // tslint:disable-next-line no-console
         console.log(`Running on localhost:${port}`);

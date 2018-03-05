@@ -10,6 +10,12 @@
 - update POST /event/:id
 - delete DELETE /event/:id
 
+
+## Next up
+
+Add [morgan](https://www.npmjs.com/package/morgan)
+
+
 ## Resources
 
 - https://www.codementor.io/olatundegaruba/nodejs-restful-apis-in-10-minutes-q0sgsfhbd
