@@ -17,9 +17,11 @@
   },
   "license": "MIT",
   "keywords": [
-    "Karma",
     "TypeScript",
-    "JavaScript"
+    "JavaScript",
+    "MongoDB",
+    "Express",
+    "Angular"
   ],
   "devDependencies": {
     "@types/body-parser": "^1.16.8",
