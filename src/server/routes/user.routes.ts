@@ -1,6 +1,6 @@
 import * as express from 'express';
-import { create, findAll, findById, remove, update } from '../controller/event.controller';
-import { IEvent } from '../model/EventModel';
+import { create, findAll, findById, remove, update } from '../controller/user.controller';
+import { IUser } from '../model/UserModel';
 import { asyncRouteHandler } from './asyncRouteHandler';
 
 /**
@@ -11,11 +11,11 @@ const router: express.Router = express.Router();
 
 router.get('/', asyncRouteHandler(
     async (req: express.Request, res: express.Response): Promise<void> => {
-        const events: IEvent[] = await findAll();
+        const users: IUser[] = await findAll();
 
         res.json({
-            data: events,
-            message: 'get all events',
+            data: users,
+            message: 'get all users',
             status: 200
         });
     })
@@ -24,11 +24,11 @@ router.get('/', asyncRouteHandler(
 router.get('/:id', asyncRouteHandler(
     async (req: express.Request, res: express.Response): Promise<void> => {
         const id: string = req.params.id;
-        const event: IEvent = await findById(id);
+        const user: IUser = await findById(id);
 
         res.json({
-            data: event,
-            message: `get event with id ${id}`,
+            data: user,
+            message: `get user with id ${id}`,
             status: 200
         });
     })
@@ -36,11 +36,11 @@ router.get('/:id', asyncRouteHandler(
 
 router.post('/', asyncRouteHandler(
     async (req: express.Request, res: express.Response): Promise<void> => {
-        const event: IEvent = await create(req.body);
+        const user: IUser = await create(req.body);
 
         res.json({
-            data: event,
-            message: `event created ${event.id}`,
+            data: user,
+            message: `user created ${user.id}`,
             status: 200
         });
     })
@@ -49,11 +49,11 @@ router.post('/', asyncRouteHandler(
 router.put('/:id', asyncRouteHandler(
     async (req: express.Request, res: express.Response): Promise<void> => {
         const id: string = req.params.id;
-        const event: IEvent = await update(id, req.body);
+        const user: IUser = await update(id, req.body);
 
         res.json({
-            data: event,
-            message: `update event with id ${id}`,
+            data: user,
+            message: `update user with id ${id}`,
             status: 200
         });
     })
@@ -66,7 +66,7 @@ router.delete('/:id', asyncRouteHandler(
         await remove(id);
 
         res.json({
-            message: `delete event with id ${id}`,
+            message: `delete user with id ${id}`,
             status: 200
         });
     })

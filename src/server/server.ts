@@ -4,7 +4,8 @@ import * as http from 'http';
 import * as morgan from 'morgan';
 import * as path from 'path';
 import { connect } from './db';
-import { router as restRoutes } from './routes/event.routes';
+import { router as eventRoutes } from './routes/event.routes';
+import { router as userRoutes } from './routes/user.routes';
 
 /**
  * Server
@@ -32,7 +33,8 @@ connect({
     // frontend code folder
     app.use(express.static(path.join(__dirname, 'dist/client')));
 
-    app.use('/api', restRoutes);
+    app.use('/api/event', eventRoutes);
+    app.use('/api/user', userRoutes);
 
     // Send all other requests to the Angular app
     app.get('*', (req: express.Request, res: express.Response) => {
