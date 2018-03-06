@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('cd App', () => {
+describe('coder dojo App', () => {
   let page: AppPage;
 
   beforeEach(() => {

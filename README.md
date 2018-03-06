@@ -16,7 +16,7 @@
 - ~~Add morgan~~
 - ~~Add Angular~~
 - Add routing
-- Add bootstrap
+- ~~Add bootstrap~~
 - Render overview dates
 - Add date
 - Edit date
@@ -25,7 +25,6 @@
 - Add user
 - Edit user
 - Remove user
-- Availability
 - Toggle availability for date
 - Login
 
