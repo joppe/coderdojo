@@ -13,8 +13,21 @@
 
 ## Next up
 
-Add [morgan](https://www.npmjs.com/package/morgan)
-
+- ~~Add morgan~~
+- ~~Add Angular~~
+- Add routing
+- Add bootstrap
+- Render overview dates
+- Add date
+- Edit date
+- Removed date
+- Render overview users (with filter)
+- Add user
+- Edit user
+- Remove user
+- Availability
+- Toggle availability for date
+- Login
 
 ## Resources
 

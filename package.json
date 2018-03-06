@@ -1,21 +1,22 @@
 {
-  "name": "boilerplate",
+  "name": "coder-dojo",
   "version": "0.0.0",
-  "description": "Boilerplate project for TypeScript/Karma/SystemJS",
+  "license": "MIT",
   "scripts": {
-    "server:build": "tsc --project ./config/tsconfig.server.json",
-    "server:watch": "tsc --project ./config/tsconfig.server.json --watch",
+    "ng": "ng",
+    "frontend:watch": "ng serve",
+    "frontend:build": "ng build --prod",
+    "frontend:test": "ng test",
+    "frontend:lint": "ng lint",
+    "frontend:e2e": "ng e2e",
+    "server:build": "tsc --project ./tsconfig.server.json",
+    "server:watch": "tsc --project ./tsconfig.server.json --watch",
     "backend": "./node_modules/.bin/nodemon dist/server/server"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/joppe/boilerplate"
   },
   "author": {
     "name": "Joppe Aarts",
     "email": "joppe@apestaartje.info"
   },
-  "license": "MIT",
   "keywords": [
     "TypeScript",
     "JavaScript",
@@ -23,23 +24,51 @@
     "Express",
     "Angular"
   ],
+  "dependencies": {
+    "@angular/animations": "^5.2.0",
+    "@angular/common": "^5.2.0",
+    "@angular/compiler": "^5.2.0",
+    "@angular/core": "^5.2.0",
+    "@angular/forms": "^5.2.0",
+    "@angular/http": "^5.2.0",
+    "@angular/platform-browser": "^5.2.0",
+    "@angular/platform-browser-dynamic": "^5.2.0",
+    "@angular/router": "^5.2.0",
+    "body-parser": "^1.18.2",
+    "core-js": "^2.4.1",
+    "express": "^4.16.2",
+    "mongoose": "^5.0.8",
+    "rxjs": "^5.5.6",
+    "zone.js": "^0.8.19"
+  },
   "devDependencies": {
+    "@angular/cli": "1.6.5",
+    "@angular/compiler-cli": "^5.2.0",
+    "@angular/language-service": "^5.2.0",
     "@types/body-parser": "^1.16.8",
     "@types/express": "^4.11.1",
+    "@types/jasmine": "~2.8.3",
+    "@types/jasminewd2": "~2.0.2",
     "@types/mongoose": "^5.0.5",
     "@types/morgan": "^1.7.35",
-    "@types/node": "^9.4.6",
+    "@types/node": "^8.9.4",
     "awesome-typescript-loader": "^3.4.1",
+    "codelyzer": "^4.0.1",
+    "jasmine-core": "~2.8.0",
+    "jasmine-spec-reporter": "~4.2.1",
+    "karma": "~2.0.0",
+    "karma-chrome-launcher": "~2.2.0",
+    "karma-cli": "~1.0.1",
+    "karma-coverage-istanbul-reporter": "^1.2.1",
+    "karma-jasmine": "~1.1.0",
+    "karma-jasmine-html-reporter": "^0.2.2",
     "morgan": "^1.9.0",
     "nodemon": "^1.17.1",
+    "protractor": "~5.1.2",
     "source-map-loader": "^0.2.3",
+    "ts-node": "~4.1.0",
     "tslint": "^5.9.1",
     "tslint-microsoft-contrib": "^5.0.2",
     "typescript": "^2.7.1"
-  },
-  "dependencies": {
-    "body-parser": "^1.18.2",
-    "express": "^4.16.2",
-    "mongoose": "^5.0.8"
   }
 }
