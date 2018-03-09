@@ -18,8 +18,8 @@
 - ~~Add routing~~
 - ~~Add bootstrap~~
 - ~~Add proxy to make backend calls in development~~
-- Event service
-- Render overview dates (simple table)
+- ~~Event service~~
+- ~~Render overview dates (simple table)~~
 - Add date
 - Edit date
 - Removed date
