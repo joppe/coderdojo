@@ -1,2 +1,17 @@
-<p>Events</p>
+<h2>Events</h2>
 
+<table class="table">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Type</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let event of events">
+            <td>{{ event.date | date:'longDate' }}</td>
+            <td>{{ event.type }}</td>
+        </tr>
+    </tbody>
+</table>
