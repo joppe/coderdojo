@@ -15,9 +15,11 @@
 
 - ~~Add morgan~~
 - ~~Add Angular~~
-- Add routing
+- ~~Add routing~~
 - ~~Add bootstrap~~
-- Render overview dates
+- Add proxy to make backend calls in development
+- Date service
+- Render overview dates (simple table)
 - Add date
 - Edit date
 - Removed date
@@ -27,6 +29,7 @@
 - Remove user
 - Toggle availability for date
 - Login
+- Eventbrite service to fetch registered count
 
 ## Resources
 
