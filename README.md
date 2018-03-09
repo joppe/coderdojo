@@ -17,8 +17,8 @@
 - ~~Add Angular~~
 - ~~Add routing~~
 - ~~Add bootstrap~~
-- Add proxy to make backend calls in development
-- Date service
+- ~~Add proxy to make backend calls in development~~
+- Event service
 - Render overview dates (simple table)
 - Add date
 - Edit date
