@@ -11,7 +11,7 @@
     "frontend:e2e": "ng e2e",
     "server:build": "tsc --project ./tsconfig.server.json",
     "server:watch": "tsc --project ./tsconfig.server.json --watch",
-    "backend": "./node_modules/.bin/nodemon dist/server/server"
+    "server:serve": "./node_modules/.bin/nodemon dist/server/server"
   },
   "author": {
     "name": "Joppe Aarts",

@@ -17,7 +17,10 @@ const routes: Routes = [
     },
     {
         path: 'event',
-        component: EventComponent
+        loadChildren: 'app/event/event.module#EventModule',
+        data: {
+            preload: true
+        }
     },
     {
         path: 'user',

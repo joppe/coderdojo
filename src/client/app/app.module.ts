@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { eventServiceInjectables } from './service/api/event.service';
+import { EventModule } from './event/event.module';
 
 @NgModule({
     declarations: [
@@ -14,13 +14,12 @@ import { eventServiceInjectables } from './service/api/event.service';
     imports: [
         AppRoutingModule,
         BrowserModule,
+        EventModule,
         HttpClientModule
-    ],
-    providers: [
-        eventServiceInjectables
     ],
     bootstrap: [
         AppComponent
     ]
 })
-export class AppModule { }
+export class AppModule {
+}
