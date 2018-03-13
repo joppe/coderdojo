@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
-import { EventRoutingModule, routingComponents } from './event-routing.module';
-import { EventService } from './event.service';
+import { EventRoutingModule, routingComponents } from '@app/event/event-routing.module';
+import { EventService } from '@app/event/event.service';
 
 @NgModule({
     imports: [

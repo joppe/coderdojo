@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { EventComponent } from './event/event.component';
-import { HomeComponent } from './home/home.component';
-import { UserComponent } from './user/user.component';
+import { EventComponent } from '@app/event/event.component';
+import { HomeComponent } from '@app/home/home.component';
+import { UserComponent } from '@app/user/user.component';
 
 const routes: Routes = [
     {

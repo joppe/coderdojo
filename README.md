@@ -20,8 +20,8 @@
 - ~~Add proxy to make backend calls in development~~
 - ~~Event service~~
 - ~~Render overview dates (simple table)~~
-- Event feature module
-- @app path (https://stackoverflow.com/questions/41460810/avoiding-relative-paths-in-angular-cli)
+- ~~Event feature module~~
+- ~~@app path (https://stackoverflow.com/questions/41460810/avoiding-relative-paths-in-angular-cli)~~
 - Add date
 - Edit date
 - Removed date

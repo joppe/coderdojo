@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { EventCreateComponent } from './create/event-create.component';
-import { EventDetailComponent } from './detail/event-detail.component';
-import { EventEditComponent } from './edit/event-edit.component';
-import { EventListComponent } from './list/event-list.component';
+import { EventCreateComponent } from '@app/event/create/event-create.component';
+import { EventDetailComponent } from '@app/event/detail/event-detail.component';
+import { EventEditComponent } from '@app/event/edit/event-edit.component';
+import { EventListComponent } from '@app/event/list/event-list.component';
 
 export const routes: Routes = [
     {
