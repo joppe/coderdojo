@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule, routingComponents } from '@app/app-routing.module';
 import { AppComponent } from '@app/app.component';
 import { EventModule } from '@app/event/event.module';
+import { SharedModule } from '@app/shared/shared.module';
 
 @NgModule({
     declarations: [
@@ -15,7 +16,8 @@ import { EventModule } from '@app/event/event.module';
         AppRoutingModule,
         BrowserModule,
         EventModule,
-        HttpClientModule
+        HttpClientModule,
+        SharedModule
     ],
     bootstrap: [
         AppComponent
