@@ -38,6 +38,21 @@ export class EventService {
         );
     }
 
+    public get(id: string): Observable<IApiResponse<undefined | IEvent>> {
+        return this.http.get<IApiResponse<undefined | IEvent>>(`${BASE_URL}/${id}`, httpOptions).pipe(
+            catchError(
+                this.handleError(
+                    'getAll',
+                    {
+                        data: undefined,
+                        status: 500,
+                        message: 'error'
+                    }
+                )
+            )
+        );
+    }
+
     public create(event: IEvent): Observable<IApiResponse<undefined | IEvent>> {
         return this.http.post<IApiResponse<undefined | IEvent>>(BASE_URL, event, httpOptions).pipe(
             catchError(

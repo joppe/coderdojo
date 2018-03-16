@@ -22,9 +22,11 @@
 - ~~Render overview dates (simple table)~~
 - ~~Event feature module~~
 - ~~@app path (https://stackoverflow.com/questions/41460810/avoiding-relative-paths-in-angular-cli)~~
-- ~~Add date~~
-- ~~Remove date~~
+- ~~Add event~~
+- ~~Remove event~~
+- ~~Detail event~~
 - Edit date
+- Event navigation
 - form validation
 - handle service errors
 - Add event menu
