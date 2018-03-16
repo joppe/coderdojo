@@ -3,6 +3,7 @@
         <tr>
             <th>Date</th>
             <th>Type</th>
+            <th></th>
         </tr>
     </thead>
 
@@ -10,6 +11,17 @@
         <tr *ngFor="let event of events">
             <td>{{ event.date | date:'longDate' }}</td>
             <td>{{ event.type }}</td>
+            <td>
+                <a [routerLink]="['../detail', event._id]" class="mr-2">
+                    <span octicon="file"></span>
+                </a>
+                <a [routerLink]="['../edit', event._id]" class="mr-2">
+                    <span octicon="pencil"></span>
+                </a>
+                <a href="javascript:void(0);" (click)="remove(event)">
+                    <span octicon="trashcan"></span>
+                </a>
+            </td>
         </tr>
     </tbody>
 </table>

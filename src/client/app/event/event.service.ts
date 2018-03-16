@@ -27,7 +27,37 @@ export class EventService {
         return this.http.get<IApiResponse<undefined | IEvent[]>>(BASE_URL, httpOptions).pipe(
             catchError(
                 this.handleError(
-                    'search',
+                    'getAll',
+                    {
+                        data: undefined,
+                        status: 500,
+                        message: 'error'
+                    }
+                )
+            )
+        );
+    }
+
+    public create(event: IEvent): Observable<IApiResponse<undefined | IEvent>> {
+        return this.http.post<IApiResponse<undefined | IEvent>>(BASE_URL, event, httpOptions).pipe(
+            catchError(
+                this.handleError(
+                    'create',
+                    {
+                        data: undefined,
+                        status: 500,
+                        message: 'error'
+                    }
+                )
+            )
+        );
+    }
+
+    public remove(id: string): Observable<IApiResponse<undefined>> {
+        return this.http.delete<IApiResponse<undefined>>(`${BASE_URL}/${id}`).pipe(
+            catchError(
+                this.handleError(
+                    'create',
                     {
                         data: undefined,
                         status: 500,

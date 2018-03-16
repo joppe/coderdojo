@@ -18,6 +18,18 @@ export class EventListComponent implements OnInit {
     }
 
     public ngOnInit(): void {
+        this.getEvents();
+    }
+
+    public remove(event: IEvent): void {
+        if (window.confirm('Really remove?')) {
+            this.eventService.remove(event._id).subscribe((response: IApiResponse<undefined>): void => {
+                this.getEvents();
+            });
+        }
+    }
+
+    private getEvents(): void {
         this.eventService.getAll().subscribe((response: IApiResponse<IEvent[] | undefined>): void => {
             if (response.status === 200) {
                 this.events = response.data;
