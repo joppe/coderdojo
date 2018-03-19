@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { EventComponent } from '@app/event/event.component';
 import { HomeComponent } from '@app/home/home.component';
 import { UserComponent } from '@app/user/user.component';
 
@@ -41,6 +40,5 @@ export class AppRoutingModule {
 
 export const routingComponents: Object[] = [
     HomeComponent,
-    EventComponent,
     UserComponent
 ];

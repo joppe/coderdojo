@@ -1,3 +1,14 @@
 <h2>Events</h2>
 
+<nav class="nav  nav-pills  mb-3">
+    <a class="nav-link" [routerLink]="['list']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <span octicon="list-unordered"></span>
+        List
+    </a>
+    <a class="nav-link" [routerLink]="['create']" routerLinkActive="active">
+        <span octicon="plus"></span>
+        New
+    </a>
+</nav>
+
 <router-outlet></router-outlet>

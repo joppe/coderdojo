@@ -25,8 +25,8 @@
 - ~~Add event~~
 - ~~Remove event~~
 - ~~Detail event~~
-- Edit date
-- Event navigation
+- ~~Edit date~~
+- ~~Event navigation~~
 - form validation
 - handle service errors
 - Add event menu
