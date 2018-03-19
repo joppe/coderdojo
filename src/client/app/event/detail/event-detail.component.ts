@@ -24,7 +24,6 @@ export class EventDetailComponent implements OnInit {
     }
 
     public ngOnInit(): void {
-
         this.route.params.subscribe((params: Params): void => {
             this.eventService.get(params[EVENT_ID_PROPERTY]).subscribe((response: IApiResponse<IEvent | undefined>): void => {
                 if (response.status === 200) {
