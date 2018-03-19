@@ -29,10 +29,9 @@ export class EventCreateComponent {
     }
 
     public onFormSubmit(): void {
-        const date: Date = new Date(this.eventForm.get('date').value);
         const event: IEvent = {
             type: <string>this.eventForm.get('type').value,
-            date: (new Date(date.getFullYear(), date.getMonth(), date.getDate())).getTime()
+            date: this.eventForm.get('date').value
         };
 
         this.eventService.create(event).subscribe((response: IApiResponse<IEvent | undefined>): void => {

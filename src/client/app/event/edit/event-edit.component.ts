@@ -5,6 +5,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { IEvent } from '@app/event/event.interface';
 import { EventService } from '@app/event/event.service';
 import { IApiResponse } from '@app/service/api/api.response.interface';
+import { DateFormatService } from '@app/shared/service/date-format.service';
 
 const EVENT_ID_PROPERTY: string = 'id';
 
@@ -19,14 +20,18 @@ export class EventEditComponent implements OnInit {
     private eventService: EventService;
     private route: ActivatedRoute;
     private router: Router;
+    private dateFormatService: DateFormatService;
 
     public constructor(eventService: EventService,
                        route: ActivatedRoute,
                        router: Router,
-                       fb: FormBuilder) {
+                       fb: FormBuilder,
+                       dateFormatService: DateFormatService) {
         this.eventService = eventService;
         this.route = route;
         this.router = router;
+        this.dateFormatService = dateFormatService;
+
         this.eventForm = fb.group({
             type: ['', Validators.required],
             date: ['', Validators.required]
@@ -38,21 +43,22 @@ export class EventEditComponent implements OnInit {
             this.eventService.get(params[EVENT_ID_PROPERTY]).subscribe((response: IApiResponse<IEvent | undefined>): void => {
                 if (response.status === 200) {
                     this.id = response.data._id;
-                    this.eventForm.reset(response.data);
+                    this.eventForm.reset({
+                        type: response.data.type,
+                        date: this.dateFormatService.date(response.data.date)
+                    });
                 }
             });
         });
     }
 
     public onFormSubmit(): void {
-        const date: Date = new Date(this.eventForm.get('date').value);
         const event: IEvent = {
             type: <string>this.eventForm.get('type').value,
-            date: (new Date(date.getFullYear(), date.getMonth(), date.getDate())).getTime()
+            date: this.eventForm.get('date').value
         };
 
         this.eventService.update(this.id, event).subscribe((response: IApiResponse<IEvent | undefined>): void => {
-            window.console.log('finished update');
             this.router.navigate(['../../list'], {
                 relativeTo: this.route
             });
