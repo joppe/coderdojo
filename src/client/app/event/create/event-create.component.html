@@ -1,6 +1,13 @@
 <h2>Event create</h2>
+
 <form [formGroup]="eventForm" (ngSubmit)="onFormSubmit()">
-    <p> Type: <input formControlName="type"> </p>
-    <p> Date: <input type="date" formControlName="date"> </p>
-    <p> <button>Add</button> </p>
+    <div class="form-group">
+        <label for="event_type">Type</label>
+        <input type="text" class="form-control" id="event_type" placeholder="Type" formControlName="type">
+    </div>
+    <div class="form-group">
+        <label for="event_date">Date</label>
+        <input type="date" class="form-control" id="event_date" placeholder="Date" formControlName="date">
+    </div>
+    <button class="btn btn-primary" [disabled]="eventForm.pristine">Save</button>
 </form>
