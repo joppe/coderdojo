@@ -29,8 +29,7 @@
 - ~~Event navigation~~
 - form validation
 - handle service errors
-- Add event menu
-- Render overview users (with filter)
+- Render overview users
 - Add user
 - Edit user
 - Remove user
