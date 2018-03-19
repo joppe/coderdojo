@@ -68,6 +68,21 @@ export class EventService {
         );
     }
 
+    public update(id: string, event: Partial<IEvent>): Observable<IApiResponse<undefined | IEvent>> {
+        return this.http.put<IApiResponse<undefined | IEvent>>(`${BASE_URL}/${id}`, event, httpOptions).pipe(
+            catchError(
+                this.handleError(
+                    'update',
+                    {
+                        data: undefined,
+                        status: 500,
+                        message: 'error'
+                    }
+                )
+            )
+        );
+    }
+
     public remove(id: string): Observable<IApiResponse<undefined>> {
         return this.http.delete<IApiResponse<undefined>>(`${BASE_URL}/${id}`).pipe(
             catchError(
