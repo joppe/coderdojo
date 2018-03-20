@@ -1,7 +1,9 @@
 <form [formGroup]="eventForm" (ngSubmit)="onFormSubmit()">
     <div class="form-group">
         <label for="event_type">Type</label>
-        <input type="text" class="form-control" id="event_type" placeholder="Type" formControlName="type">
+        <select class="form-control" formControlName="type" id="event_type">
+            <option *ngFor="let type of getTypes()" [value]="type">{{ type }}</option>
+        </select>
     </div>
     <div class="form-group">
         <label for="event_date">Date</label>

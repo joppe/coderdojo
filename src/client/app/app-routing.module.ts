@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { HomeComponent } from '@app/home/home.component';
-import { UserComponent } from '@app/user/user.component';
 
 const routes: Routes = [
     {
@@ -23,7 +22,10 @@ const routes: Routes = [
     },
     {
         path: 'user',
-        component: UserComponent
+        loadChildren: 'app/user/user.module#UserModule',
+        data: {
+            preload: true
+        }
     }
 ];
 
@@ -39,6 +41,5 @@ export class AppRoutingModule {
 }
 
 export const routingComponents: Object[] = [
-    HomeComponent,
-    UserComponent
+    HomeComponent
 ];

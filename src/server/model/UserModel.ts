@@ -11,18 +11,29 @@ export interface IUserEvent {
 }
 
 export interface IUser extends mongoose.Document {
-    name: string;
+    firstName: string;
+    middleName: string;
+    lastName: string;
     email: string;
     telephone: string;
     address: string;
     city: string;
+    zipCode: string;
     roles: string[];
     birthDate: Date;
     events: IUserEvent[];
 }
 
 export const UserSchema: mongoose.Schema = new mongoose.Schema({
-    name: {
+    firstName: {
+        type: String,
+        required: true
+    },
+    middleName: {
+        type: String,
+        required: false
+    },
+    lastName: {
         type: String,
         required: true
     },
@@ -39,6 +50,10 @@ export const UserSchema: mongoose.Schema = new mongoose.Schema({
         required: false
     },
     city: {
+        type: String,
+        required: false
+    },
+    zipCode: {
         type: String,
         required: false
     },

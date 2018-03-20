@@ -27,14 +27,15 @@
 - ~~Detail event~~
 - ~~Edit date~~
 - ~~Event navigation~~
+- ~~pipe for user names~~
 - form validation
 - handle service errors
-- Render overview users
-- Add user
-- Edit user
-- Remove user
+- ~~List users~~
+- ~~Add user~~
+- ~~Edit user~~
+- ~~Remove user~~
+- modal service
 - Toggle availability for date
-- Use material
 - Login
 - Eventbrite service to fetch registered count
 

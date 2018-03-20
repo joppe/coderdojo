@@ -1,0 +1,18 @@
+<dl *ngIf="user">
+    <dt>Name</dt>
+    <dd>{{ user | name }}</dd>
+    <ng-container *ngIf="user.email">
+        <dt>E-mail</dt>
+        <dd><a href="mailto:{{ user.email }}">{{ user.email }}</a></dd>
+    </ng-container>
+    <ng-container *ngIf="user.telephone">
+        <dt>Telephone</dt>
+        <dd><a href="tel:{{ user.telephone }}">{{ user.telephone }}</a></dd>
+    </ng-container>
+    <dt>Address</dt>
+    <dd>{{ user.address }}</dd>
+    <dt>City</dt>
+    <dd>{{ user.city }}</dd>
+    <dt>Birth date</dt>
+    <dd>{{ user.birthDate | date:'longDate' }}</dd>
+</dl>

@@ -1,2 +1,16 @@
-<p>Users</p>
+<app-header>
+    <h2 class="mb-3">Users</h2>
 
+    <nav class="nav  nav-pills  mb-3">
+        <a class="nav-link" [routerLink]="['list']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+            <span octicon="list-unordered"></span>
+            List
+        </a>
+        <a class="nav-link" [routerLink]="['create']" routerLinkActive="active">
+            <span octicon="plus"></span>
+            New
+        </a>
+    </nav>
+</app-header>
+
+<router-outlet></router-outlet>

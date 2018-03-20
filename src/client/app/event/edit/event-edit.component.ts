@@ -64,4 +64,8 @@ export class EventEditComponent implements OnInit {
             });
         });
     }
+
+    public getTypes(): string[] {
+        return this.eventService.getTypes();
+    }
 }
