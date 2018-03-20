@@ -9,9 +9,9 @@
     "frontend:test": "ng test",
     "frontend:lint": "ng lint",
     "frontend:e2e": "ng e2e",
-    "server:build": "tsc --project ./tsconfig.server.json",
-    "server:watch": "tsc --project ./tsconfig.server.json --watch",
-    "server:serve": "./node_modules/.bin/nodemon dist/server/server"
+    "backend:build": "tsc --project ./tsconfig.server.json",
+    "backend:watch": "tsc --project ./tsconfig.server.json --watch",
+    "backend:serve": "./node_modules/.bin/nodemon dist/server/server"
   },
   "author": {
     "name": "Joppe Aarts",
