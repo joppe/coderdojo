@@ -1,11 +1,30 @@
 import * as bodyParser from 'body-parser';
 import * as express from 'express';
+import * as jwt from 'express-jwt';
 import * as http from 'http';
 import * as morgan from 'morgan';
+import * as passport from 'passport';
 import * as path from 'path';
+
+import { TOKEN_SECRET } from './config/vars';
 import { connect } from './db';
-import { router as eventRoutes } from './routes/event.routes';
-import { router as userRoutes } from './routes/user.routes';
+import { router as authenticationRoutes } from './routes/authentication.routes';
+import { getRoutes as getEventRoutes } from './routes/event.routes';
+import { getRoutes as getUserRoutes } from './routes/user.routes';
+
+/**
+ * The UserModel must be initialized before the passport configuration is imported.
+ */
+
+// tslint:disable-next-line no-import-side-effect
+import './model/UserModel';
+// tslint:disable-next-line no-import-side-effect ordered-imports
+import './config/passport';
+
+const auth: jwt.RequestHandler = jwt({
+    secret: TOKEN_SECRET,
+    userProperty: 'payload'
+});
 
 /**
  * Server
@@ -33,8 +52,10 @@ connect({
     // frontend code folder
     app.use(express.static(path.join(__dirname, 'dist/client')));
 
-    app.use('/api/event', eventRoutes);
-    app.use('/api/user', userRoutes);
+    app.use(passport.initialize());
+    app.use('/api', authenticationRoutes);
+    app.use('/api/event', getEventRoutes(auth));
+    app.use('/api/user', getUserRoutes(auth));
 
     // Send all other requests to the Angular app
     app.get('*', (req: express.Request, res: express.Response) => {

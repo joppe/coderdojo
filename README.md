@@ -34,10 +34,22 @@
 - ~~Add user~~
 - ~~Edit user~~
 - ~~Remove user~~
-- modal service
+- ~~modal service~~
+- confirm modal
 - Toggle availability for date
 - Login
+    - https://www.sitepoint.com/user-authentication-mean-stack/
+    - http://jasonwatmore.com/post/2017/02/22/mean-with-angular-2-user-registration-and-login-example-tutorial
+    - https://www.djamware.com/post/5a878b3c80aca7059c142979/securing-mean-stack-angular-5-web-application-using-passport
+    - https://www.sitepoint.com/user-authentication-mean-stack/
+- Environment specific config
+    - Move TOKEN SECRET to environment config
+- Deploy on heroku (https://devcenter.heroku.com/articles/config-vars) using mLab mongo db (https://devcenter.heroku.com/articles/mongolab)
 - Eventbrite service to fetch registered count
+- Home, show first Dojo
+- Service worker
+- Code spliting
+- Server side rendering
 
 ## Resources
 
