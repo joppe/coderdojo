@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { IApiResponse } from '@app/service/api/api.response.interface';
+import { IApiResponse } from '@app/core/interface/api-response.interface';
 import { IUser } from '@app/user/user.interface';
 import { UserService } from '@app/user/user.service';
 

@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
+import { IApiResponse } from '@app/core/interface/api-response.interface';
 import { IEvent } from '@app/event/event.interface';
 import { EventService } from '@app/event/event.service';
-import { IApiResponse } from '@app/service/api/api.response.interface';
 
 @Component({
     selector: 'app-event-create',

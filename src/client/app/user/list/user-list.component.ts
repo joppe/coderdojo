@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { IApiResponse } from '@app/service/api/api.response.interface';
+import { IApiResponse } from '@app/core/interface/api-response.interface';
 import { IUser } from '@app/user/user.interface';
 import { UserService } from '@app/user/user.service';
 

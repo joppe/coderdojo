@@ -1,30 +1,23 @@
 import * as express from 'express';
-import * as passport from 'passport';
+
+import { authenticate } from '../controller/user.controller';
 import { IUser } from '../model/UserModel';
 
 const router: express.Router = express.Router();
 
-router.get('/login', (req: express.Request, res: express.Response): void => {
-    // tslint:disable-next-line no-any
-    passport.authenticate('local', (err: any, user: IUser, info: any): void => {
-        // If Passport throws/catches an error
-        if (err) {
-            res.status(404).json(err);
-
-            return;
-        }
-
-        // If a user is found
+router.post('/login', (req: express.Request, res: express.Response): void => {
+    authenticate(req.body.email, req.body.password).then((user: IUser | undefined): void => {
         if (user) {
-            res.status(200);
-            res.json({
-                token: user.generateJwt()
-            });
+            res.send(user);
         } else {
-            // If user is not found
-            res.status(401).json(info);
+            res.status(400);
+            res.send('Username or password is incorrect');
         }
-    })(req, res);
+    // tslint:disable-next-line no-any
+    }).catch((err: any): void => {
+        res.status(400);
+        res.send(err);
+    });
 });
 
 export { router };

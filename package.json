@@ -41,8 +41,6 @@
     "jsonwebtoken": "^8.2.0",
     "mongoose": "^5.0.8",
     "octicons": "^7.1.0",
-    "passport": "^0.4.0",
-    "passport-local": "^1.0.0",
     "rxjs": "^5.5.6",
     "zone.js": "^0.8.19"
   },
@@ -59,8 +57,6 @@
     "@types/mongoose": "^5.0.5",
     "@types/morgan": "^1.7.35",
     "@types/node": "^8.9.4",
-    "@types/passport": "^0.4.3",
-    "@types/passport-local": "^1.0.32",
     "awesome-typescript-loader": "^3.4.1",
     "bootstrap": "^4.0.0",
     "codelyzer": "^4.0.1",

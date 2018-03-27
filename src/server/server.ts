@@ -3,28 +3,15 @@ import * as express from 'express';
 import * as jwt from 'express-jwt';
 import * as http from 'http';
 import * as morgan from 'morgan';
-import * as passport from 'passport';
 import * as path from 'path';
 
 import { TOKEN_SECRET } from './config/vars';
 import { connect } from './db';
 import { router as authenticationRoutes } from './routes/authentication.routes';
-import { getRoutes as getEventRoutes } from './routes/event.routes';
-import { getRoutes as getUserRoutes } from './routes/user.routes';
-
-/**
- * The UserModel must be initialized before the passport configuration is imported.
- */
-
-// tslint:disable-next-line no-import-side-effect
-import './model/UserModel';
-// tslint:disable-next-line no-import-side-effect ordered-imports
-import './config/passport';
-
-const auth: jwt.RequestHandler = jwt({
-    secret: TOKEN_SECRET,
-    userProperty: 'payload'
-});
+import { router as eventRoutes } from './routes/event.routes';
+import { router as userRoutes } from './routes/user.routes';
+import { EventModel, IEvent } from './model/EventModel';
+import { IUser, UserModel } from './model/UserModel';
 
 /**
  * Server
@@ -52,10 +39,43 @@ connect({
     // frontend code folder
     app.use(express.static(path.join(__dirname, 'dist/client')));
 
-    app.use(passport.initialize());
+    app.use(jwt({
+        secret: TOKEN_SECRET,
+        getToken: (req: express.Request): string | null => {
+            if (req.headers.authorization && (<string>req.headers.authorization).split(' ')[0] === 'Bearer') {
+                return (<string>req.headers.authorization).split(' ')[1];
+            } else if (req.query && req.query.token) {
+                return req.query.token;
+            }
+
+            return null;
+        }
+    }).unless({
+        path: [
+            '/api/login'
+        ]
+    }));
+
+    app.use((req: express.Request, res: express.Response, next: express.NextFunction): void => {
+        if (req.user) {
+            UserModel.findById(req.user.sub, (err: any, user: IUser) => {
+                if (err) {
+                    // reject(err);
+                } else {
+                    req.user = user;
+                    // resolve(event);
+                }
+
+                next();
+            });
+        } else {
+            next();
+        }
+    });
+
     app.use('/api', authenticationRoutes);
-    app.use('/api/event', getEventRoutes(auth));
-    app.use('/api/user', getUserRoutes(auth));
+    app.use('/api/event', eventRoutes);
+    app.use('/api/user', userRoutes);
 
     // Send all other requests to the Angular app
     app.get('*', (req: express.Request, res: express.Response) => {

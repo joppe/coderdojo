@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { IApiResponse } from '@app/core/interface/api-response.interface';
 import { IEvent } from '@app/event/event.interface';
 import { EventService } from '@app/event/event.service';
-import { IApiResponse } from '@app/service/api/api.response.interface';
 
 @Component({
     selector: 'app-event-list',

@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { catchError } from 'rxjs/operators';
 
-import { IApiResponse } from '@app/service/api/api.response.interface';
+import { IApiResponse } from '@app/core/interface/api-response.interface';
 import { IUser } from '@app/user/user.interface';
 
 type HandleErrorMethod = (error: HttpErrorResponse) => Observable<IApiResponse<undefined>>;

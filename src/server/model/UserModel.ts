@@ -23,7 +23,7 @@ export interface IUser extends mongoose.Document {
     address: string;
     city: string;
     zipCode: string;
-    roles: string[];
+    role: string;
     birthDate: Date;
     events: IUserEvent[];
     salt: string;
@@ -68,8 +68,8 @@ export const UserSchema: mongoose.Schema = new mongoose.Schema({
         type: String,
         required: false
     },
-    roles: {
-        type: [String],
+    role: {
+        type: String,
         required: true
     },
     birthDate: {
@@ -117,9 +117,7 @@ UserSchema.methods.generateJwt = function (this: IUser): string {
 
     return jwt.sign(
         {
-            _id: this._id,
-            email: this.email,
-            firstName: this.firstName,
+            sub: this._id,
             exp: Math.round(expiry.getTime() / 1000)
         },
         TOKEN_SECRET

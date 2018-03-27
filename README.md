@@ -28,15 +28,20 @@
 - ~~Edit date~~
 - ~~Event navigation~~
 - ~~pipe for user names~~
-- form validation
-- handle service errors
 - ~~List users~~
 - ~~Add user~~
 - ~~Edit user~~
 - ~~Remove user~~
 - ~~modal service~~
+- form validation
+- handle service errors
+- clean up code client (SharedModule/CoreModule)
+- Add roles
+- clean up code server (Check if user has role)
 - confirm modal
 - Toggle availability for date
+- Display logged in user
+- loggedin user menu (edit profile/set password)
 - Login
     - https://www.sitepoint.com/user-authentication-mean-stack/
     - http://jasonwatmore.com/post/2017/02/22/mean-with-angular-2-user-registration-and-login-example-tutorial

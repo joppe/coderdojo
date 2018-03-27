@@ -1,10 +1,11 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule, routingComponents } from '@app/app-routing.module';
 import { AppComponent } from '@app/app.component';
-import { EventModule } from '@app/event/event.module';
+import { CoreModule } from '@app/core/core.module';
 import { SharedModule } from '@app/shared/shared.module';
 
 @NgModule({
@@ -15,8 +16,9 @@ import { SharedModule } from '@app/shared/shared.module';
     imports: [
         AppRoutingModule,
         BrowserModule,
-        EventModule,
+        CoreModule,
         HttpClientModule,
+        ReactiveFormsModule,
         SharedModule
     ],
     bootstrap: [

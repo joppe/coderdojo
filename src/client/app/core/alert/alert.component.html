@@ -1,0 +1,4 @@
+<div *ngIf="message" [ngClass]="{ 'alert': message, 'alert-success': message.type === 'success', 'alert-danger': message.type === 'error' }" role="alert">
+    {{ message.text }}
+    <a (click)="close()" href="javascript:void(0);" octicon="x" class="float-right"></a>
+</div>
